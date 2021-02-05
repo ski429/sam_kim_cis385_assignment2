@@ -16,7 +16,7 @@
           content-cols-lg="7"
           label="Title"
         >
-          <b-form-input id="input-movie-title"></b-form-input>
+          <b-form-input id="input-movie-title" v-model="title"></b-form-input>
         </b-form-group>
 
 
@@ -27,8 +27,14 @@
           content-cols-sm
           content-cols-lg="7"
         >
-          <b-form-rating id="movie-rating" v-model="value" no-border></b-form-rating>
+          <b-form-rating id="movie-rating" v-model.number="rating" no-border></b-form-rating>
         </b-form-group>
+        <b-button
+            :disabled="title.length < 1 || !rating"
+            @click="add"
+        >
+          Submit
+        </b-button>
       </b-form-group>
     </b-card>
 
@@ -40,9 +46,18 @@
 <script>
 export default {
   name: "Form",
+  props : {
+    movies: Array
+  },
   data() {
     return {
-      value: null
+      rating: 0,
+      title: ""
+    }
+  },
+  methods : {
+    add: function() {
+      this.movies.push({ "title": this.title, "rating": this.rating })
     }
   }
 }

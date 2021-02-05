@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <Header/>
-    <Form/>
-    <MovieView/>
+    <Form
+        :movies="movies"
+    />
+    <MovieView :movies="movies"/>
   </div>
 </template>
 
@@ -17,7 +19,13 @@ export default {
     Header,
     Form,
     MovieView
+  },
+  data() {
+    return {
+      movies: []
+    }
   }
+
 }
 </script>
 
