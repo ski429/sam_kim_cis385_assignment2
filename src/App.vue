@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <Header/>
-    <Form
-        :movies="movies"
-    />
+    <Header :movies="movies"/>
+
+    <Form :movies="movies"/>
+
     <MovieView :movies="movies"/>
   </div>
 </template>
