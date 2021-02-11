@@ -2,7 +2,8 @@
   <div>
     <ul id="movie-list">
       <li v-for="movie in movies" :key="movie.title">
-        {{ movie.title}}
+        {{ movie.title}}<br>
+        {{ movie.rating}}
       </li>
     </ul>
   </div>
@@ -13,7 +14,8 @@ export default {
   name: "MovieView",
   data() {
     return {
-      title: ""
+      title: "",
+      rating: null
     }
   },
   props: {
