@@ -1,11 +1,15 @@
 <template>
   <div>
-    <ul id="movie-list">
-      <li v-for="movie in movies" :key="movie.title">
-        {{ movie.title}}<br>
-        {{ movie.rating}}
-      </li>
-    </ul>
+    <table class="center">
+      <tr>
+        <th>Movie Title</th>
+        <th>Your Rating</th>
+      </tr>
+      <tr v-for="movie in movies" :key="movie.title">
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.rating }}/5</td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -25,5 +29,16 @@ export default {
 </script>
 
 <style scoped>
+  div {
+    margin: 20px 20px;
+  }
 
+  .center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  th, td {
+    padding: 10px;
+  }
 </style>
