@@ -58,6 +58,8 @@ export default {
   methods : {
     add: function() {
       this.movies.push({ "title": this.title, "rating": this.rating })
+      this.title = ""
+      this.rating = 0
     }
   }
 }
